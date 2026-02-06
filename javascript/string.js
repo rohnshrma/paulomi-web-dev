@@ -1,65 +1,66 @@
 // ===================== STRING =====================
 
-// A STRING is a sequence of characters stored inside quotes.
-// Characters include letters, numbers, symbols, and spaces.
-// Example: "Hello", "123", "@hello!", "Hello world"
+// A STRING = text data stored inside quotes
+// A string is a sequence of characters
+// Characters include letters, numbers, spaces, symbols
 
-// Strings can be written using:
+// These are all valid strings:
+"hello"; // double quotes
 "hello"; // single quotes
-"hello" // double quotes
 `hello`; // backticks (template literal)
+
+// Backticks allow variable injection and multi-line strings
 
 // --------------------------------------------------
 // USER INPUT + TYPE CONVERSION
 // --------------------------------------------------
 
-// prompt() shows a popup input box in the browser.
-// Whatever the user enters is ALWAYS returned as a STRING.
-// Even if the user types numbers → it is still a string.
+// prompt()
+// Shows an input popup in the browser
+// Whatever user types is ALWAYS returned as a STRING
 
-// Number() tries to convert the string into a numeric value.
-// If conversion fails → result becomes NaN (Not a Number).
+// Number()
+// Tries to convert string → number
+// If conversion fails → result = NaN (Not a Number)
 
 var yourname = Number(prompt("Enter your name : "));
 
-// console.log prints values to the browser console.
-// typeof checks the data type of a value.
+// typeof checks data type of a value
+// console.log prints value in browser console
 
 console.log(yourname, typeof yourname);
-// Example output:
-// NaN "number"
-// Because text cannot be converted into a number
+// If user types text → conversion fails → NaN
 
 // --------------------------------------------------
 // parseInt()
 // --------------------------------------------------
 
-// parseInt converts string → integer (whole number).
-// Decimal part is removed.
+// parseInt converts string → integer (whole number)
+// It removes decimal part
 
 var weight = parseInt(prompt("Enter your weight : "));
 
 console.log(weight, typeof weight);
-// If user enters "70.9" → parseInt returns 70
+// "70.9" → becomes 70
 
 // --------------------------------------------------
 // parseFloat()
 // --------------------------------------------------
 
 // parseFloat converts string → decimal number
-// Decimal values are preserved.
+// It keeps decimal values
 
 var height = parseFloat(prompt("Enter your height : "));
 
 console.log(height, typeof height);
-// If user enters "5.9" → result stays 5.9
+// "5.9" → remains 5.9
 
 // ==================================================
 // STRING PROPERTIES & OPERATIONS
 // ==================================================
 
-// .length is a PROPERTY (not a function).
-// It returns total number of characters in a string.
+// .length is a PROPERTY (not a function)
+// It counts total characters
 
 var text = "hello";
 
@@ -69,29 +70,24 @@ console.log(text.length); // 5
 // CONCATENATION
 // --------------------------------------------------
 
-// Concatenation = joining strings using + operator
+// Concatenation = joining strings using +
 
-console.log("john" + " " + "doe");
-// "john doe"
+console.log("john" + " " + "doe"); // "john doe"
 
-// If all operands are numbers → + performs addition
-
+// If only numbers → addition happens
 console.log(1 + 2 + 3); // 6
 
-// If ANY operand is a string → + becomes concatenation
+// If any value is string → concatenation happens
+console.log(1 + "2"); // "12"
 
-console.log(1 + "2");
-// number 1 becomes "1"
-// "1" + "2" = "12"
-
-// --------------------------------------------------
-// UNARY PLUS
-// --------------------------------------------------
+/* --------------------------------------------------
+   UNARY PLUS
+-------------------------------------------------- */
 
 // Unary plus converts string → number
 
 console.log(1 + +"2");
-// +"2" becomes 2
+// +"2" becomes number 2
 // 1 + 2 = 3
 
 // ==================================================
@@ -102,7 +98,7 @@ var fName = prompt("Enter your first name :");
 var lName = prompt("Enter your last name :");
 var age = parseInt(prompt("Enter your age :"));
 
-// Traditional string building using +
+// Building string using + operator
 
 console.log(
   "hello world my name is " +
@@ -119,7 +115,7 @@ console.log(
 // ==================================================
 
 // Template literals use backticks ` `
-// They allow inserting variables using ${ }
+// ${ } allows variables & expressions inside string
 
 console.log(
   `hello world my name is ${fName} ${lName.toUpperCase()} and i am ${
@@ -128,33 +124,31 @@ console.log(
 );
 
 // lName.toUpperCase() → converts to uppercase
-// ${age + age} → expression inside template literal
+// age + age → expression inside template
 
 // ==================================================
 // UNARY OPERATORS
 // ==================================================
 
-console.log(+"2");
-// converts string to number → 2
-
-console.log(-"2");
-// converts and negates → -2
+console.log(+"2"); // converts to number → 2
+console.log(-"2"); // converts and negates → -2
 
 // ==================================================
 // STRING INDEXING
 // ==================================================
 
-// Indexing = accessing characters using position
-
-// Index starts from 0
+// Index = position of characters
+// Index always starts from 0
 
 // "hello"
 // index: 0 1 2 3 4
 
 var word = "hello";
 
-console.log(word[0]); // h
-console.log(word[word.length - 1]); // o
+console.log(word[0]); // first character "h"
+
+// last character = length - 1
+console.log(word[word.length - 1]); // "o"
 
 // ==================================================
 // STRING METHODS
@@ -163,24 +157,22 @@ console.log(word[word.length - 1]); // o
 var x = "hello World my Name is John";
 
 // .at(index)
-// Returns character at index
-// Supports negative indexing
+// returns character at index
+// supports negative indexing
 
 console.log(x.at(10));
 console.log(x.at(-4));
 
 // .charAt(index)
-// Similar to .at but does NOT support negative index
+// similar to .at but NO negative support
 
 console.log(x.charAt(10));
-console.log(x.charAt(-4)); // returns empty string
+console.log(x.charAt(-4)); // empty string
 
-// Convert whole string to uppercase
-
+// convert entire string uppercase
 console.log(x.toUpperCase());
 
-// Convert whole string to lowercase
-
+// convert entire string lowercase
 console.log(x.toLowerCase());
 
 // replace(old, new)
@@ -189,28 +181,26 @@ console.log(x.toLowerCase());
 console.log(x.replace("o", "x"));
 
 // regex /o/g replaces ALL occurrences
-
 console.log(x.replace(/o/g, "x"));
 
-// replaceAll replaces all occurrences
-
+// replaceAll replaces all matches
 console.log(x.replaceAll("o", "x"));
 
 // indexOf()
-// returns first match position
+// returns first match index
 // -1 if not found
 
 console.log(x.indexOf("o"));
-console.log(x.indexOf("o", 5)); // start search from index 5
+console.log(x.indexOf("o", 5)); // start searching from index 5
 
 // lastIndexOf()
-// returns last match position
+// returns last match index
 
 console.log(x.lastIndexOf("o"));
 console.log(x.lastIndexOf("o", 19));
 
 // includes()
-// returns true or false
+// checks existence → true/false
 
 console.log(x.includes("z")); // false
 console.log(x.includes("o", 10));
@@ -231,14 +221,72 @@ console.log(x.substring());
 // CUSTOM STRING TRANSFORMATION
 // ==================================================
 
-// Goal:
-// "mcdonalds" → "McDonalds"
+// Goal example formatting letters
 
 x = "ZARA";
 
 console.log(
   x[0].toUpperCase() + // first letter uppercase
-    x[1].toLowerCase() + // second letter lowercase
-    x[2].toUpperCase() + // third letter uppercase
+    x[1].toLowerCase() + // second lowercase
+    x[2].toUpperCase() + // third uppercase
     x.slice(3).toLowerCase() // rest lowercase
 );
+
+// ==================================================
+// EXTRA STRING METHODS
+// ==================================================
+
+var a = "hello";
+var b = "world";
+
+console.log(a.concat(" ", b)); // joins strings
+
+var txt = "hello world my name is john";
+
+// startsWith()
+console.log(txt.startsWith("h"));
+console.log(txt.startsWith("l"));
+console.log(txt.startsWith("my", 12));
+
+// endsWith()
+console.log(txt.endsWith("n"));
+console.log(txt.endsWith("l"));
+console.log(txt.endsWith("d", 11));
+
+// split() → converts string to array
+console.log(txt.split()); // whole string
+console.log(txt.split("")); // characters
+console.log(txt.split(" ")); // words
+console.log(txt.split("o")); // split by "o"
+
+// repeat()
+console.log(txt.repeat(3));
+
+// length property
+console.log(txt.length);
+
+// padStart / padEnd
+console.log(txt.padStart(30));
+console.log(txt.padStart(30, "-=-"));
+console.log(txt.padEnd(30, "-=-"));
+console.log(txt.padEnd(30, "-=-").padStart(33, "=*="));
+
+// trim methods
+console.log("         hello world            ".trim());
+console.log("         hello world            ".trimStart());
+console.log("         hello world            ".trimEnd());
+
+// remove all spaces
+console.log("         hello world            ".replaceAll(" ", ""));
+
+// localeCompare()
+// compares alphabetical order
+
+console.log("apple".localeCompare("banana")); // negative
+console.log("banana".localeCompare("apple")); // positive
+console.log("apple".localeCompare("apple")); // 0
+
+// convert number → string
+var num = 123;
+
+console.log(num.toString());
